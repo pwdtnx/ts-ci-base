@@ -20,7 +20,7 @@ module.exports = (grunt) ->
 
 
         "mocha-chai-sinon":
-            build:
+            travis:
                 src: ["test.js"]
                 options:
                     ui: "bdd"
@@ -60,7 +60,9 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks "grunt-contrib-testem"
     grunt.loadNpmTasks "grunt-mocha-chai-sinon"
 
-    grunt.registerTask "default", ["compile_test", "test", "compile"]
-    grunt.registerTask "compile", ["clean:build", "tvm_tsc:build"]
-    grunt.registerTask "compile_test", ["clean:test", "tvm_tsc:test"]
-    grunt.registerTask "test", ["testem", "mocha-chai-sinon:coverage"]
+    grunt.registerTask "default", ["compile:test", "test:testem", "compile:build"]
+    grunt.registerTask "compile:build", ["clean:build", "tvm_tsc:build"]
+    grunt.registerTask "compile:test", ["clean:test", "tvm_tsc:test"]
+    grunt.registerTask "test", ["test:testem"]
+    grunt.registerTask "test:testem", ["testem:test", "mocha-chai-sinon:coverage"]
+    grunt.registerTask "test:travis", ["mocha-chai-sinon:travis"]
