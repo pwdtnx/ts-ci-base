@@ -1,0 +1,24 @@
+{
+  "name": "ts-ci-base",
+  "version": "0.0.1",
+  "authors": [
+    "Tanix <https://github.com/pwdtnx/>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "**/*.json",
+    "**/*.coffee",
+    "**/*.ts",
+    "node_modules",
+    "bower_components",
+    "src",
+    "test",
+    "tests",
+    "compiled",
+    "typings"
+  ],
+  "dependencies": {
+  }
+}

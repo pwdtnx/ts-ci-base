@@ -1,0 +1,12 @@
+{
+    "framework": "mocha+chai",
+    "src_files": ["test.js"],
+    "launch_in_ci": ["Chrome", "Firefox", "mocha"],
+    "launch_in_dev": ["Chrome", "Firefox", "mocha"],
+    "launchers": {
+        "mocha": {
+            "command": "mocha test.js"
+        }
+    },
+    "parallel": 8
+}
