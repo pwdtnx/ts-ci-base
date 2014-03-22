@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "project template with CI development environment",
   "main": "",
-  "scripts": {
-    "test": "grunt test"
-  },
   "author": "Tanix <https://github.com/pwdtnx/>",
   "license": "MIT",
   "devDependencies": {
@@ -17,5 +14,22 @@
     "chai": "",
     "mocha": "",
     "sinon": ""
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "testling": {
+    "harness": "mocha-bdd",
+    "files": "test.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
   }
 }
