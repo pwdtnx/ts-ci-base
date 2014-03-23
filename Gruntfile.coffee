@@ -13,10 +13,13 @@ module.exports = (grunt) ->
         options :
           version : "0.9.7"
         files :
-          "test.js" : "test/index.ts"
+          "compiled/test.js" : "test/index.ts"
 
     testem :
-      test : grunt.file.readYAML "testem.yml"
+      test :
+        src: ["compiled/test.js"]
+        options : grunt.file.readYAML "testem.yml"
+
 
     "mocha-chai-sinon" :
       travis :
@@ -32,21 +35,21 @@ module.exports = (grunt) ->
           reporter : "html-cov"
           quiet : true
           filter : "compiled"
-          captureFile : "coverage.html"
+          captureFile : "compiled/test.coverage.html"
 
     clean :
       build :
-        src : ["compiled/**/*"]
+        src : ["compiled/compiled.*"]
       test :
-        src : ["test.js", "coverage.html"]
+        src : ["compiled/test.*"]
 
     watch :
       build :
         files : ["src/**/*.ts"]
-        tasks : ["compile_test", "test", "compile"]
+        tasks : ["compile:test", "test", "compile:build"]
       test :
         files : ["test/**/*.ts"]
-        tasks : ["compile_test", "test"]
+        tasks : ["compile:test", "test"]
       config :
         files : ["Gruntfile.*", "*.json", ".*.yml", "*.yaml"]
         tasks : ["default"]
@@ -64,5 +67,5 @@ module.exports = (grunt) ->
   grunt.registerTask "compile:build", ["clean:build", "tvm_tsc:build"]
   grunt.registerTask "compile:test", ["clean:test", "tvm_tsc:test"]
   grunt.registerTask "test", ["test:testem"]
-  grunt.registerTask "test:testem", ["testem:test", "mocha-chai-sinon:coverage"]
+  grunt.registerTask "test:testem", ["testem:ci:test", "mocha-chai-sinon:coverage"]
   grunt.registerTask "test:travis", ["mocha-chai-sinon:travis"]
