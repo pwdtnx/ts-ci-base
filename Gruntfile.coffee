@@ -16,9 +16,14 @@ module.exports = (grunt) ->
           "compiled/test.js" : "test/index.ts"
 
     testem :
+      options : grunt.file.readYAML "testem.yml"
       test :
         src: ["compiled/test.js"]
-        options : grunt.file.readYAML "testem.yml"
+      travis:
+        src: ["compiled/test.js"]
+        options:
+          launch_in_ci: ["PhantomJS", "Mocha"]
+          launch_in_dev: ["PhantomJS", "Mocha"]
 
 
     "mocha-chai-sinon" :
@@ -68,4 +73,4 @@ module.exports = (grunt) ->
   grunt.registerTask "compile:test", ["clean:test", "tvm_tsc:test"]
   grunt.registerTask "test", ["test:testem"]
   grunt.registerTask "test:testem", ["testem:ci:test", "mocha-chai-sinon:coverage"]
-  grunt.registerTask "test:travis", ["mocha-chai-sinon:travis"]
+  grunt.registerTask "test:travis", ["testem:ci:travis"]

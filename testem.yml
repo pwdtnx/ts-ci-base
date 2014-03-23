@@ -6,12 +6,16 @@ launch_in_ci:
   - Firefox
   - Safari
   - IE
+  - PhantomJS
+  - Chromium
   - Mocha
 launch_in_dev:
   - Chrome
   - Firefox
   - Safari
   - IE
+  - PhantomJS
+  - Chromium
   - Mocha
 launchers:
   Mocha:
