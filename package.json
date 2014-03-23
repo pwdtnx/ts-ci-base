@@ -6,6 +6,8 @@
   "author": "Tanix <https://github.com/pwdtnx/>",
   "license": "MIT",
   "devDependencies": {
+    "grunt": "",
+    "grunt-cli": "",
     "grunt-tvm-tsc": "",
     "grunt-contrib-watch": "",
     "grunt-mocha-chai-sinon": "",
@@ -20,7 +22,8 @@
   },
   "testling": {
     "harness": "mocha-bdd",
-    "files": "test.js",
+    "files": "compiled/test.js",
+    "preprocess": "./node_modules/.bin/grunt compile:test",
     "browsers": [
       "ie/6..latest",
       "chrome/22..latest",

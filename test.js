@@ -1,1 +1,0 @@
-require("./compiled/test.js");

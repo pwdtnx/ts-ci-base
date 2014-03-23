@@ -25,7 +25,6 @@ module.exports = (grunt) ->
           launch_in_ci: ["PhantomJS", "Mocha"]
           launch_in_dev: ["PhantomJS", "Mocha"]
 
-
     "mocha-chai-sinon" :
       travis :
         src : ["test.js"]
