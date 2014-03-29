@@ -8,31 +8,30 @@
   "devDependencies": {
     "grunt": "",
     "grunt-cli": "",
-    "grunt-tvm-tsc": "",
     "grunt-contrib-watch": "",
-    "grunt-mocha-chai-sinon": "",
-    "grunt-contrib-testem": "",
     "grunt-contrib-clean": "",
-    "chai": "",
+    "grunt-tvm-tsc": "",
+    "grunt-browserify": "",
+    "grunt-bower-concat": "",
+    "grunt-contrib-concat": "",
+    "grunt-contrib-testem": "",
     "mocha": "",
+    "chai": "",
     "sinon": ""
   },
   "scripts": {
     "test": "grunt test"
   },
   "testling": {
-    "harness": "mocha-bdd",
-    "files": "compiled/test.js",
-    "preprocess": "./node_modules/.bin/grunt compile:test",
+    "harness": "mocha",
+    "preprocess": "./node_modules/.bin/grunt compile:test:browser",
+    "scripts": ["./compiled/test.browser.js"],
     "browsers": [
-      "ie/6..latest",
-      "chrome/22..latest",
-      "firefox/16..latest",
+      "ie/latest",
+      "chrome/latest",
+      "firefox/latest",
       "safari/latest",
-      "opera/11.0..latest",
-      "iphone/6",
-      "ipad/6",
-      "android-browser/latest"
+      "opera/latest"
     ]
   }
 }

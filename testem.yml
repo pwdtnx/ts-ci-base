@@ -1,6 +1,6 @@
-framework: mocha+chai
+framework: mocha
 src_files:
-  - ./compiled/test.js
+  - ./compiled/test.browser.js
 launch_in_ci:
   - Chrome
   - Firefox
@@ -8,7 +8,6 @@ launch_in_ci:
   - IE
   - PhantomJS
   - Chromium
-  - Mocha
 launch_in_dev:
   - Chrome
   - Firefox
@@ -16,9 +15,9 @@ launch_in_dev:
   - IE
   - PhantomJS
   - Chromium
-  - Mocha
 launchers:
   Mocha:
-    command: ./node_modules/.bin/mocha ./compiled/test.js
+    command: ./node_modules/.bin/mocha --reporter tap ./harness/test.node.js
+    protocol: tap
 parallel: 8
 

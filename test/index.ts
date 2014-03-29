@@ -6,8 +6,7 @@
 /// <reference path="../src/index.ts" />
 
 describe("test", () => {
-    var c = typeof chai !== "undefined" ? chai : require("chai");
-    var expect = c.expect;
+    var expect = chai.expect;
     it("test1", () => {
         expect(Main.Main.calc()).equal(3);
     });
